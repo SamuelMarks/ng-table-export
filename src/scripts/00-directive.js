@@ -26,14 +26,14 @@ angular.module('ngTableExport', [])
                         if (tr.hasClass('ng-table-filters')) {
                             return;
                         }
-                        if (tds.length == 0) {
+                        else if (tds.length == 0) {
                             tds = tr.find('td');
                         }
                         if (i != 1) {
                             angular.forEach(tds, function(td, i) {
-                                rowData += csv.stringify(angular.element(td).text()) + ';';
+                                rowData += csv.stringify(angular.element(td).text()) + ',';
                             });
-                            rowData = rowData.slice(0, rowData.length - 1); //remove last semicolon
+                            rowData = rowData.slice(0, rowData.length - 1); //remove last comma
                         }
                         data += rowData + "\n";
                     });
